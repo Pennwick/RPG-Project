@@ -27,7 +27,7 @@ public class Battle_Class
 		int turn = 1;
 		boolean start = true;
 		
-		if(Player2Speed > Player1Speed & start == true)
+		if(Player2Speed > Player1Speed && start == true)
 			{
 				turn = 2;
 				start = false;
@@ -36,7 +36,7 @@ public class Battle_Class
 //////////////////////////////////////////////////////////////////GAMEPLAY STARTS HERE
 		
 		int victory = 0;
-while (victory == 0);
+while (victory == 0)
 {
 		//player 1's turn actions
 	if(turn == 1)
@@ -130,3 +130,4 @@ if(victory == 2)
 
 	   }
 }
+
