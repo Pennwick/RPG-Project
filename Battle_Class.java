@@ -11,15 +11,16 @@ public class Battle_Class
 		 int Player1Power = 20;
 		 int Player1Endurance = 10;
 		 int Player1Speed = 10;
-		
+			boolean Protected1 = false;
+		 
 		//player 2 Stats
 		 int Player2Health = 100;
 		 int Player2Power = 20;
 		 int Player2Endurance = 10;
 		 int Player2Speed = 10;
+			boolean Protected2 = false;
 		
-		
-		System.out.print("Time for Battle!");
+		System.out.print("Time for Battle!\n\n");
 		
 		Scanner input = new Scanner(System.in);
 		
@@ -42,21 +43,29 @@ while (victory == 0)
 	if(turn == 1)
 	{
 		int P1Move;
-		boolean Protected1 = false;
+
 		
-		System.out.print("Choose");
+		System.out.print("\n\nPlayer 1, Choose");
 		P1Move = input.nextInt();
-		
-		//resets Endurance if player defended last turn
-		if(Protected1 == true)
-		{
-			Player1Endurance = Player1Endurance - 5;
-			Protected1 = false;
-		}
+
 			//attack option
 			if (P1Move == 1)
 				{
-					Player2Health = Player2Health - (Player1Power - Player2Endurance);
+				int damage1 = (Player1Power - Player2Endurance);
+				
+				
+				//resets Endurance if player defended last turn
+				if(Protected1 == true)
+				{
+					Player1Endurance = Player1Endurance - 5;
+					Protected1 = false;
+				}
+				
+				if(damage1 < 0)
+					{
+						damage1 = 0;
+					}
+					Player2Health = Player2Health - damage1;
 				}
 			//defend option
 			if (P1Move == 2)
@@ -65,10 +74,14 @@ while (victory == 0)
 					Protected1 = true;
 				}
 		
+			System.out.print("Player 2 health: " + Player2Health);
+			
 		turn = 2;
 	}
 		
 	
+	////////////////////////////////////////////
+	////////////////////////////////////////////
 	////////////////////////////////////////////
 	
 	
@@ -76,21 +89,28 @@ while (victory == 0)
 	if(turn == 2)
 	{
 		int P2Move;
-		boolean Protected2 = false;
+
 		
-		System.out.print("Choose");
+		System.out.print("\n\nPlayer 2, Choose");
 		P2Move = input.nextInt();
 		
 		//resets Endurance if player defended last turn
 		if(Protected2 == true)
 		{
-			Player1Endurance = Player1Endurance - 5;
+			Player2Endurance = Player2Endurance - 5;
 			Protected2 = false;
 		}
 			//attack option
 			if (P2Move == 1)
 				{
-				Player1Health = Player1Health - (Player2Power - Player1Endurance);
+
+				int damage2 = (Player2Power - Player1Endurance);
+				if(damage2 < 0)
+				{
+					damage2 = 0;
+				}
+				Player1Health = Player1Health - damage2;
+				
 				}
 			//defend option
 			if (P2Move == 2)
@@ -99,17 +119,18 @@ while (victory == 0)
 				Protected2 = true;
 				}
 				
+			System.out.print("Player 1 health: " + Player1Health);
 		
 		turn = 1;
 	}
 	
 	//checks if either player has won yet
-	if(Player1Health<1)
+	if(Player1Health < 1)
 	{
 		victory = 2;
 	}
 	
-	if(Player2Health<1)
+	if(Player2Health < 1)
 	{
 		victory = 1;
 	}
@@ -130,4 +151,3 @@ if(victory == 2)
 
 	   }
 }
-
