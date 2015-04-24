@@ -3,42 +3,22 @@ import java.util.Scanner;
 public class Battle
 {
 	
-	public int getHealth()
-	{
-	    return health;
-	}
-	
-	public int getPower()
-	{
-	    return power;
-	}
-	
-	public int getEndurance()
-	{
-	    return endurance;
-	}
-	
-	public int getSpeed()
-	{
-	    return speed;
-	}
-	
 	public void attack( Object playerA, Object playerB )
 	{
-	    int damage = ( playerA.power - playerB.endurance );
+	    	int damage = ( playerA.getPower() - playerB.getEndurance() );
 	    
-	    playerB.health -= damage;
+	    	playerB.getHealth() -= damage;
 	    
-	    if ( playerB.health <= 0 )
-	    {
-	        victory( playerA );
-	    }
+	    	if ( playerB.getHealth() <= 0 )
+	    	{
+	        	victory( playerA );
+	    	}
 	}
 	
 	public void defend( Object player, int defense )
 	{
-	    player.endurance += defense;
-	    player.protected = true;
+	    	player.getEndurance() += defense;
+	    	player.protected = true;
 	}
 	
 	public void victory( Object player )
