@@ -11,6 +11,11 @@ public class tester
             
             Battle newBattle = new Battle();
             
-            newBattle.battleStart( player1, player2 );
+            boolean gameLoop = true
+            
+            while ( gameLoop )
+            {
+                  newBattle.battleStart( player1, player2 );
+            }
       }
 }
