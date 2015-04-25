@@ -1,5 +1,9 @@
 public class Battle
 {
+	public Battle()
+	{
+		
+	}
 	
 	public void attack( Object playerA, Object playerB, int defense )
 	{
