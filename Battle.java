@@ -1,5 +1,8 @@
 public class Battle
 {
+	int pA;
+	int pB;
+	
 	public Battle()
 	{
 		
@@ -45,28 +48,39 @@ public class Battle
 		startTurn( 1, playerA, playerB );
 	}
 	
-	public void startTurn( int turnNumber, Object playerA, Object playerB )
+	public void turnOrder( Object playerA, Object playerB )
 	{
-		//start the turn and determine the order
-		int turn = turnNumber;
-		
-		playerA.setProtect( false )
-		
 		if ( playerA.getSpeed() > playerB.getSpeed() )
 		{
-			int pA = 1;
-			int pB = 2;
+			pA = 1;
+			pB = 2;
 		}
 		
 		if ( playerB.getSpeed() > playerA.getSpeed() )
 		{
-			int pB = 1;
-			int pA = 2;
+			pB = 1;
+			pA = 2;
 		}
 		
 		if ( playerA.getSpeed() == playerB.getSPeed() )
 		{
 			//randomly pick turn order
 		}
+	}
+	
+	public void startTurn( int turnNumber, Object playerA, Object playerB )
+	{
+		//start the turn and determine the order
+		int turn = turnNumber;
+		
+		playerA.setProtect( false ):
+		playerB.setProtect( false );
+		
+		System.out.println( "Player 1 Health: " + playerA.getHealth() );
+		System.out.println( "Player 2 Health: " + playerB.getHealth() );
+		
+		turnOrder( playerA, playerB );
+		
+		
 	}
 }
