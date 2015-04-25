@@ -1,7 +1,7 @@
 public class Battle
 {
-	int pA;
-	int pB;
+	Object first;
+	Object second;
 	
 	public Battle()
 	{
@@ -52,19 +52,28 @@ public class Battle
 	{
 		if ( playerA.getSpeed() > playerB.getSpeed() )
 		{
-			pA = 1;
-			pB = 2;
+			first = playerA;
+			second = playerB;
 		}
 		
 		if ( playerB.getSpeed() > playerA.getSpeed() )
 		{
-			pB = 1;
-			pA = 2;
+			first = playerB;
+			second = playerA;
 		}
 		
 		if ( playerA.getSpeed() == playerB.getSPeed() )
 		{
 			//randomly pick turn order
+		}
+	}
+	
+	public void actionSelect( int choice )
+	{
+		switch( choice )
+		{
+			case 0: gameLoop = false; break;
+			case 1: 
 		}
 	}
 	
