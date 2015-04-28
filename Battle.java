@@ -83,7 +83,7 @@ public class Battle
 		switch( choice )
 		{
 			case 0: gameLoop = false; break;
-			case 1: attack( playerA, playerB, 5 ); break;
+			case 1: attack( playerA, playerB ); break;
 			case 2: defend( playerA ); break;
 		}
 	}
