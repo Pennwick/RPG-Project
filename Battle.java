@@ -8,14 +8,14 @@ public class Battle
 		
 	}
 	
-	public void attack( Object playerA, Object playerB, int defense )
+	public void attack( Object playerA, Object playerB )
 	{
 		// playerA is attacking playerB
 		int damage;
 		
 		if ( playerB.getProtect() == true )
 		{
-			damage = ( playerA.getPower() - ( playerB.getEndurance() + defense ) );
+			damage = ( playerA.getPower() - ( playerB.getEndurance() + playerB.getDefense() ) );
 		}
 		else
 		{
