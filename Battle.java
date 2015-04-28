@@ -43,11 +43,6 @@ public class Battle
 	    
 	}
 	
-	public void battleStart( Object playerA, Object playerB )
-	{
-		startTurn( 1, playerA, playerB );
-	}
-	
 	public void turnOrder( Object playerA, Object playerB )
 	{
 		if ( playerA.getSpeed() > playerB.getSpeed() )
@@ -100,7 +95,5 @@ public class Battle
 		System.out.println( "Player 2 Health: " + playerB.getHealth() );
 		
 		turnOrder( playerA, playerB );
-		
-		
 	}
 }
