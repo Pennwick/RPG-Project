@@ -13,9 +13,15 @@ public class tester
             
             boolean gameLoop = true
             
+            newBattle.battleStart( player1, player2 );
+            
             while ( gameLoop )
             {
-                  newBattle.battleStart( player1, player2 );
+                  System.out.println( newBattle.getFirst() + " enter 1 to attack, 2 to defend, or 0 to quit: " );
+                  //newBattle.actionSelect( input.nextInt(), newBattle.getFirst(), newBattle.getSecond() );
+                  
+                  System.out.println( newBattle.getSecond() + " enter 1 to attack, 2 to defend, or 0 to quit: " );
+                  //newBattle.actionSelect( input.nextInt(), newBattle.getSecond(), newBattle.getFirst() );
             }
       }
 }
