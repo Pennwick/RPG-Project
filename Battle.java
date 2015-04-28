@@ -68,12 +68,23 @@ public class Battle
 		}
 	}
 	
-	public void actionSelect( int choice )
+	public Object getFirst()
+	{
+		return first;
+	}
+	
+	public Object getSecond()
+	{
+		return second;
+	}
+	
+	public void actionSelect( int choice, Object playerA, Object playerB )
 	{
 		switch( choice )
 		{
 			case 0: gameLoop = false; break;
-			case 1: 
+			case 1: attack( playerA, playerB, 5 ); break;
+			case 2: defend( playerA ); break;
 		}
 	}
 	
