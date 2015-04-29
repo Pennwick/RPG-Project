@@ -1,14 +1,14 @@
 public class Battle
 {
-	Object first;
-	Object second;
+	Player first;
+	Player second;
 	
 	public Battle()
 	{
 		
 	}
 	
-	public void attack( Object playerA, Object playerB )
+	public void attack( Player playerA, Player playerB )
 	{
 		// playerA is attacking playerB
 		int damage;
@@ -33,17 +33,17 @@ public class Battle
 	    	}
 	}
 	
-	public void defend( Object player )
+	public void defend( Player player )
 	{
 	    	player.setProtect( true );
 	}
 	
-	public void victory( Object player )
+	public void victory( Player player )
 	{
 	    
 	}
 	
-	public void turnOrder( Object playerA, Object playerB )
+	public void turnOrder( Player playerA, Player playerB )
 	{
 		if ( playerA.getSpeed() > playerB.getSpeed() )
 		{
@@ -63,27 +63,27 @@ public class Battle
 		}
 	}
 	
-	public Object getFirst()
+	public Player getFirst()
 	{
 		return first;
 	}
 	
-	public Object getSecond()
+	public Player getSecond()
 	{
 		return second;
 	}
 	
-	public void actionSelect( int choice, Object playerA, Object playerB )
+	public void actionSelect( int choice, Player playerA, Player playerB )
 	{
 		switch( choice )
 		{
-			case 0: gameLoop = false; break;
+			case 0: break;
 			case 1: attack( playerA, playerB ); break;
 			case 2: defend( playerA ); break;
 		}
 	}
 	
-	public void startTurn( int turnNumber, Object playerA, Object playerB )
+	public void startTurn( int turnNumber, Player playerA, Player playerB )
 	{
 		//start the turn and determine the order
 		int turn = turnNumber;
