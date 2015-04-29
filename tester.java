@@ -7,7 +7,7 @@ public class tester
             Scanner input = new Scanner( System.in );
         
             Player player1 = new Player( 100, 20, 10, 10, 5 );
-            Player player2 = new Player( 100, 20, 10, 10, 5 );
+            Player player2 = new Player( 100, 20, 10, 8, 5 );
             
             int choice1 = 0;
             int choice2 = 0;
