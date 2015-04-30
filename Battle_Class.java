@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+
+
 public class Battle_Class 
 {
 	
@@ -12,6 +14,7 @@ public class Battle_Class
 		 int Player1Endurance = 10;
 		 int Player1Speed = 10;
 			boolean Protected1 = false;
+		 int bonus1 = 0;
 		 
 		//player 2 Stats
 		 int Player2Health = 100;
@@ -19,6 +22,7 @@ public class Battle_Class
 		 int Player2Endurance = 10;
 		 int Player2Speed = 10;
 			boolean Protected2 = false;
+		 int bonus2 = 0;
 		
 		System.out.print("Time for Battle!\n\n");
 		
@@ -48,23 +52,33 @@ while (victory == 0)
 		System.out.print("\n\nPlayer 1, Choose");
 		P1Move = input.nextInt();
 
+		
+		//resets Endurance if player defended last turn
+		if(Protected1 == true)
+		{
+			Player1Endurance = Player1Endurance - 5;
+			Protected1 = false;
+		}
 			//attack option
 			if (P1Move == 1)
 				{
+				//allows for a critical hit or a missed attack P1
+				 int Crit1 = (int) (Math.floor(Math.random() * (100 - 1)) + 1);				 
+				 
 				int damage1 = (Player1Power - Player2Endurance);
-				
-				
-				//resets Endurance if player defended last turn
-				if(Protected1 == true)
-				{
-					Player1Endurance = Player1Endurance - 5;
-					Protected1 = false;
-				}
-				
-				if(damage1 < 0)
+					//Crit Hit Code
+					if (Crit1 < 11)
 					{
-						damage1 = 0;
+					damage1 = damage1 + Crit1;
+					System.out.println("Critical Hit!\n\n");
 					}
+					//Miss Code
+					if (Crit1 > 90)
+					{
+					damage1 = damage1 * 0;
+					System.out.println("Missed!\n\n");
+					}
+				
 					Player2Health = Player2Health - damage1;
 				}
 			//defend option
@@ -103,12 +117,23 @@ while (victory == 0)
 			//attack option
 			if (P2Move == 1)
 				{
-
+				//allows for a critical hit or a missed attack P2
+				 int Crit2 = (int) (Math.floor(Math.random() * (100 - 1)) + 1);	
+				
 				int damage2 = (Player2Power - Player1Endurance);
-				if(damage2 < 0)
+				//Crit Hit code
+				if (Crit2 < 11)
 				{
-					damage2 = 0;
+				damage2 = damage2 + Crit2;
+				System.out.println("Critical Hit!\n\n");
 				}
+				//Miss Code
+				if (Crit2 > 90)
+				{
+				damage2 = damage2 * 0;
+				System.out.println("Missed!\n\n");
+				}
+					
 				Player1Health = Player1Health - damage2;
 				
 				}
