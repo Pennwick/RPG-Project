@@ -59,7 +59,11 @@ public class Battle
 		
 		if ( playerA.getSpeed() == playerB.getSPeed() )
 		{
-			//randomly pick turn order
+			switch ( randomWithRange( 1, 2 )
+			{
+				case 1: first = playerA; second = playerB; break;
+				case 2: first = playerB; second = playerA; break;
+			}
 		}
 	}
 	
@@ -95,5 +99,11 @@ public class Battle
 		System.out.println( "Player 2 Health: " + playerB.getHealth() );
 		
 		turnOrder( playerA, playerB );
+	}
+	
+	public int randomWithRange(int min, int max)
+	{
+   		int range = (max - min) + 1;     
+   		return (int)(Math.random() * range) + min;
 	}
 }
