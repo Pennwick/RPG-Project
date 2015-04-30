@@ -5,17 +5,46 @@ public class tester
       public static void main( String[] args )
       {
             Scanner input = new Scanner( System.in );
-        
-            Player player1 = new Player( 100, 20, 10, 10 );
-            Player player2 = new Player( 100, 20, 10, 10 );
             
             int choice1 = 0;
             int choice2 = 0;
             
             Battle newBattle = new Battle();
             Training newTrainer = new Training();
+            Player player1 = new Player( 0, 0, 0, 0 );
+            Player player2 = new Player( 0, 0, 0, 0 );
             
             boolean gameLoop = true;
+            
+            //Player 1 chooses class
+            
+            System.out.println( "Player 1, enter 1 for warrior or 2 for mage" );
+            choice1 = input.nextInt();
+            
+            if ( choice1 == 1 )
+            {
+            	player1.setAll( 120, 15, 15, 10 );
+            }
+            else
+            {
+            	player1.setAll( 90, 30, 10, 10 );
+            }
+            
+            //Player 2 chooses class
+            
+            System.out.println( "Player 2, enter 1 for warrior or 2 for mage" );
+            choice1 = input.nextInt();
+            
+            if ( choice1 == 1 )
+            {
+            	player2.setAll( 120, 15, 15, 10 );
+            }
+            else
+            {
+            	player2.setAll( 90, 30, 10, 10 );
+            }
+            
+            //Player 1's 10 days to train
             
             System.out.println( "Player 1 you have 10 days to train." );
             
@@ -34,6 +63,8 @@ public class tester
             
             System.out.println( "Player 1: Health: " + player1.getMaxHealth() + " Power: " + player1.getPower() + " Endurance: " + player1.getEndurance() + " Speed: " + player1.getSpeed() );
             
+            //Player 2's 10 days to train
+            
             System.out.println( "Player 2 you have 10 days to train." );
             
             for ( int turn = 1; turn <= 10; turn++ )
@@ -50,6 +81,8 @@ public class tester
             }
             
             System.out.println( "Player 2: Health: " + player2.getMaxHealth() + " Power: " + player2.getPower() + " Endurance: " + player2.getEndurance() + " Speed: " + player2.getSpeed() );
+            
+            //Battle starts
             
             while ( gameLoop )
             {
