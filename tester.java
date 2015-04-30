@@ -15,19 +15,40 @@ public class tester
             Battle newBattle = new Battle();
             
             boolean gameLoop = true
-            int turn = 1;
             
-            for ( turn = 1; turn <= 10; turn++ )
+            System.out.println( "Player 1 you have 10 days to train." );
+            
+            for ( int turn = 1; turn <= 10; turn++ )
             {
+                  System.out.println( "Day " + turn );
                   System.out.println( "Player 1 enter 1 to train power, or 2 to train endurance: " );
                   choice1 = input.nextInt();
                   
-                  switch
+                  switch( choice1 )
+                  {
+                        case 1: trainPower( player1 ); System.out.println( "Power raised to " + player1.getPower() ); break;
+                        case 2: trainEndurance( player1 ); System.out.println( "Endurance raised to " + player1.getEndurance() ); break;
+                  }
+            }
+            
+            System.out.println( "Player 2 you have 10 days to train." );
+            
+            for ( int turn = 1; turn <= 10; turn++ )
+            {
+                  System.out.println( "Day " + turn );
+                  System.out.println( "Player 2 enter 1 to train power, or 2 to train endurance: " );
+                  choice1 = input.nextInt();
+                  
+                  switch( choice1 )
+                  {
+                        case 1: trainPower( player2 ); System.out.println( "Power raised to " + player2.getPower() ); break;
+                        case 2: trainEndurance( player2 ); System.out.println( "Endurance raised to " + player2.getEndurance() ); break;
+                  }
             }
             
             while ( gameLoop )
             {
-                  newBattle.startTurn( turn, player1, player2 )
+                  newBattle.startTurn( player1, player2 )
                   
                   System.out.println( "Player 1 enter 1 to attack, 2 to defend, or 0 to quit: " );
                   choice1 = input.nextInt();
@@ -37,7 +58,7 @@ public class tester
                   
                   if ( choice1 == 0 && choice2 == 0 )
                   {
-                        break;
+                        gameLoop = false; break;
                   }
                   else if ( choice2 == 2 )
                   {
@@ -49,8 +70,6 @@ public class tester
                         newBattle.actionSelect( choice1, newBattle.getFirst(), newBattle.getSecond() );
                         newBattle.actionSelect( choice2, newBattle.getSecond(), newBattle.getFirst() );
                   }
-                  
-                  turn += 1;
             }
       }
 }
