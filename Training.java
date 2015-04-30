@@ -1,6 +1,11 @@
 public class Training
 {
-      public int randomWithRange(int min, int max)
+	public Training()
+	{
+		
+	}
+	
+    public int randomWithRange(int min, int max)
 	{
    		int range = (max - min) + 1;     
    		return (int)(Math.random() * range) + min;
@@ -14,7 +19,8 @@ public class Training
 	
 	public void trainEndurance( Player player )
 	{
-	      player.setEndurance( player.getEndurance() + ( randomWithRange( player.getEndurance() / 4, player.getEndurance() / 2 ) ) );
-	      player.setHealth( player.getHealth() + ( randomWithRange( player.getHealth() / 10, player.getHealth() / 5 ) ) );
+	      player.setEndurance( player.getEndurance() + ( randomWithRange( player.getEndurance() / 8, player.getEndurance() / 4 ) ) );
+	      player.setMaxHealth( player.getMaxHealth() + ( randomWithRange( player.getMaxHealth() / 10, player.getMaxHealth() / 5 ) ) );
+	      player.setHealth( player.getMaxHealth() );
 	}
 }
