@@ -11,8 +11,8 @@ public class tester
             
             Battle newBattle = new Battle();
             Training newTrainer = new Training();
-            Player player1 = new Player( 0, 0, 0, 0 );
-            Player player2 = new Player( 0, 0, 0, 0 );
+            Player player1 = new Player( 0, 0, 0, 0, 0 );
+            Player player2 = new Player( 0, 0, 0, 0, 0 );
             
             boolean gameLoop = true;
             
@@ -23,11 +23,11 @@ public class tester
             
             if ( choice1 == 1 )
             {
-            	player1.setAll( 120, 15, 15, 10 );
+            	player1.setAll( 120, 15, 15, 10, 100 );
             }
             else
             {
-            	player1.setAll( 90, 30, 10, 10 );
+            	player1.setAll( 90, 30, 10, 10, 100 );
             }
             
             //Player 2 chooses class
@@ -37,11 +37,11 @@ public class tester
             
             if ( choice1 == 1 )
             {
-            	player2.setAll( 120, 15, 15, 10 );
+            	player2.setAll( 120, 15, 15, 10, 100 );
             }
             else
             {
-            	player2.setAll( 90, 30, 10, 10 );
+            	player2.setAll( 90, 30, 10, 10, 100 );
             }
             
             //Player 1's 10 days to train
