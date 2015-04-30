@@ -1,22 +1,32 @@
 public class Player
 {
+  private int maxHealth;
   private int health;
   private int power;
   private int endurance;
   private int speed;
-  private int defense;
   private boolean protect;
   
-  public Player( int heal, int pow, int end, int sp, int def )
+  public Player( int heal, int pow, int end, int sp )
   {
+      maxHealth = heal;
       health = heal;
       power = pow;
       endurance = end;
       speed = sp;
-      defense = def;
       protect = false;
   }
-  public int getHealth()
+  public int getMaxHealth()
+	{
+		return maxHealth;
+	}
+	
+	public void setMaxHealth( int heal )
+	{
+		maxHealth = heal;
+	}
+	
+	public int getHealth()
 	{
 		return health;
 	}
@@ -25,7 +35,6 @@ public class Player
 	{
 		health = heal;
 	}
-	
 	public int getPower()
 	{
 		return power;
@@ -54,16 +63,6 @@ public class Player
 	public void setSpeed( int sp )
 	{
 	    speed = sp;
-	}
-	
-	public int getDefense()
-	{
-		return defense;
-	}
-	
-	public void setDefense( int def )
-	{
-		defense = def;
 	}
 	
 	public boolean getProtect()
