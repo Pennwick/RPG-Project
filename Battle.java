@@ -15,7 +15,7 @@ public class Battle
 		
 		if ( playerB.getProtect() == true )
 		{
-			damage = ( playerA.getPower() - ( playerB.getEndurance() + playerB.getDefense() ) );
+			damage = (int) ( playerA.getPower() - ( playerB.getEndurance() * 1.5 ) );
 		}
 		else
 		{
@@ -24,12 +24,7 @@ public class Battle
 		
 	    	if ( damage > 0 )
 	    	{
-	    		playerB.setHealth( playerB.getHealth() -= damage );
-	    
-	    		if ( playerB.getHealth() <= 0 )
-	    		{
-	        		victory( playerA );
-	    		}
+	    		playerB.setHealth( playerB.getHealth() - damage );
 	    	}
 	}
 	
@@ -38,9 +33,22 @@ public class Battle
 	    	player.setProtect( true );
 	}
 	
-	public void victory( Player player )
+	public boolean checkVictory( Player playerA, Player playerB )
 	{
-	    
+	    if ( playerA.getHealth() <=0 )
+	    {
+	    	System.out.println( playerB + " wins! " );
+	    	return true;
+	    }
+	    else if ( playerB.getHealth() <= 0 )
+	    {
+	    	System.out.println( playerA + " wins! " );
+	    	return true;
+	    }
+	    else
+	    {
+	    	return false;
+	    }
 	}
 	
 	public void turnOrder( Player playerA, Player playerB )
@@ -57,9 +65,9 @@ public class Battle
 			second = playerA;
 		}
 		
-		if ( playerA.getSpeed() == playerB.getSPeed() )
+		if ( playerA.getSpeed() == playerB.getSpeed() )
 		{
-			switch ( randomWithRange( 1, 2 )
+			switch ( randomWithRange( 1, 2 ) )
 			{
 				case 1: first = playerA; second = playerB; break;
 				case 2: first = playerB; second = playerA; break;
@@ -90,7 +98,7 @@ public class Battle
 	public void startTurn( Player playerA, Player playerB )
 	{
 		//start the turn and determine the order
-		playerA.setProtect( false ):
+		playerA.setProtect( false );
 		playerB.setProtect( false );
 		
 		System.out.println( "Player 1 Health: " + playerA.getHealth() );
