@@ -37,12 +37,12 @@ public class Battle
 	{
 	    if ( playerA.getHealth() <=0 )
 	    {
-	    	System.out.println( playerB + " wins! " );
+	    	System.out.println( "Player 1 wins! " );
 	    	return true;
 	    }
 	    else if ( playerB.getHealth() <= 0 )
 	    {
-	    	System.out.println( playerA + " wins! " );
+	    	System.out.println( "Player 2 wins! " );
 	    	return true;
 	    }
 	    else
