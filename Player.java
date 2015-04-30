@@ -16,6 +16,16 @@ public class Player
       speed = sp;
       protect = false;
   }
+  
+  public void setAll( int heal, int pow, int end, int sp )
+  {
+	  maxHealth = heal;
+      health = heal;
+      power = pow;
+      endurance = end;
+      speed = sp;
+  }
+  
   public int getMaxHealth()
 	{
 		return maxHealth;
