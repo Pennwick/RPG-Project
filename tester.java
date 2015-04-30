@@ -17,6 +17,14 @@ public class tester
             boolean gameLoop = true
             int turn = 1;
             
+            for ( turn = 1; turn <= 10; turn++ )
+            {
+                  System.out.println( "Player 1 enter 1 to train power, or 2 to train endurance: " );
+                  choice1 = input.nextInt();
+                  
+                  switch
+            }
+            
             while ( gameLoop )
             {
                   newBattle.startTurn( turn, player1, player2 )
