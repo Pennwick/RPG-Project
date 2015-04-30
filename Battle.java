@@ -87,11 +87,9 @@ public class Battle
 		}
 	}
 	
-	public void startTurn( int turnNumber, Player playerA, Player playerB )
+	public void startTurn( Player playerA, Player playerB )
 	{
 		//start the turn and determine the order
-		int turn = turnNumber;
-		
 		playerA.setProtect( false ):
 		playerB.setProtect( false );
 		
