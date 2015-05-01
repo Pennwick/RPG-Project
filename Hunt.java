@@ -16,10 +16,11 @@ public class Hunt
 		}
 		else if ( player.getPower() >= chance )
 		{
-			
+			int diff = ( player.getPower() - chance ) / 2;
 		}
 		
 		//dmg taken
+		player.setHealth( player.getHealth() - diff );
 		
 		//gold found
 		
