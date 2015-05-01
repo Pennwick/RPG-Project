@@ -23,8 +23,14 @@ public class Hunt
 		player.setHealth( player.getHealth() - diff );
 		
 		//gold found
+		player.setGold( player.getGold() + diff );
 		
 		//stats improved
+		switch( randomWithRange( 1, 2 )
+		{
+			case 1: newTrainer.trainPower( player ); break;
+			case 2: newTrainer.trainEndurance( player ); break;
+		}
 	}
 	
 	public int randomWithRange(int min, int max)
