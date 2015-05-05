@@ -101,9 +101,9 @@ public class Frame extends JFrame
 		restButton.addActionListener( restListener );
 		
 		//town room buttons
-		armorButton = new JButton( "Armor" );
-		weaponButton = new JButton( "Weapon" );
-		potionButton = new JButton( "Potion" );
+		armorButton = new JButton( "Armor 200g" );
+		weaponButton = new JButton( "Weapon 200g" );
+		potionButton = new JButton( "Potion 300g" );
 		backButton = new JButton( "Back" );
 		
 		armorListener = new ArmorButtonListener();
@@ -199,6 +199,8 @@ public class Frame extends JFrame
 		add( player1BattleInfoPanel, BorderLayout.WEST );
 		player1BattleInfoPanel.setLayout( new GridLayout( 3, 1 ) );
 		
+		playerInstruct.setText( "Attack or Defend!" );
+		
 		//create player 1 info on left side
 		player1BattleInfo = new JLabel( "Player 1" );
 		player1BattleInfo.setFont( f );
@@ -261,6 +263,34 @@ public class Frame extends JFrame
 	{
 		player1Health.setText( player1.getHealth() + " / " + player1.getMaxHealth() );
 		player2Health.setText( player2.getHealth() + " / " + player2.getMaxHealth() );
+	}
+	
+	public void restart( JPanel panel )
+	{
+		if ( panel == buttonPanel )
+		{
+			remove( buttonPanel );
+		}
+		else if ( panel == battleButtonPanel )
+		{
+			remove( battleButtonPanel );
+			remove( player1BattleInfoPanel );
+			remove( player2BattleInfoPanel );
+			
+			createPlayerInfoPanel();
+		}
+		
+		player1.setAll( 100, 20, 10, 5, 100 );
+		player2.setAll( 100, 20, 10, 5, 100 );
+		currentPlayer = player1;
+		day = 1;
+		
+		updateDay();
+		updateStats();
+		createButtonPanel();
+		
+		validate();
+		repaint();
 	}
 	
 	//buttons
@@ -330,6 +360,8 @@ public class Frame extends JFrame
 				{
 					playerInstruct.setText( "Player 2 died hunting" );
 				}
+				
+				restart( buttonPanel );
 			}
 		}
 	}
@@ -530,6 +562,8 @@ public class Frame extends JFrame
 				{
 					playerInstruct.setText( "Player 1 wins!" );
 				}
+				
+				restart( battleButtonPanel );
 			}
 		}
 	}
