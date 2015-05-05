@@ -19,8 +19,39 @@ public class Training
 	
 	public void trainEndurance( Player player )
 	{
+		int healup = ( randomWithRange( player.getMaxHealth() / 10, player.getMaxHealth() / 5 ) );
 	      player.setEndurance( player.getEndurance() + ( randomWithRange( player.getEndurance() / 8, player.getEndurance() / 4 ) ) );
-	      player.setMaxHealth( player.getMaxHealth() + ( randomWithRange( player.getMaxHealth() / 10, player.getMaxHealth() / 5 ) ) );
-	      player.setHealth( player.getMaxHealth() );
+	      player.setMaxHealth( player.getMaxHealth() + healup );
+	      player.setHealth( player.getHealth() + healup );
+	}
+	
+	public void goHunt( int turn, Player player )
+	{
+		int diff = 0;
+		
+		//chance of success
+		int chance = randomWithRange( 0, ( turn * 20 ) );
+				
+		if ( ( player.getPower() + player.getEndurance() ) / 2 < chance )
+		{
+			diff = chance - player.getEndurance();
+		}
+		else if ( ( player.getPower() + player.getEndurance() ) / 2 >= chance )
+		{
+			diff = ( player.getEndurance() - chance ) / player.getPower();
+		}
+				
+		//dmg taken
+		player.setHealth( player.getHealth() - diff );
+				
+		//gold found
+		player.setGold( player.getGold() + randomWithRange( chance, chance * 3 ) );
+				
+		//stats improved
+		switch( randomWithRange( 1, 2 ) )
+		{
+			case 1: trainPower( player ); break;
+			case 2: trainEndurance( player ); break;
+		}
 	}
 }
