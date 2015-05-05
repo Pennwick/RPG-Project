@@ -16,6 +16,7 @@ public class Battle
 		if ( playerB.getProtect() == true )
 		{
 			damage = (int) ( playerA.getPower() - ( playerB.getEndurance() * 1.5 ) );
+			playerB.setProtect( false );
 		}
 		else
 		{
