@@ -16,6 +16,7 @@ public class Frame extends JFrame
 	
 	private int day = 1;
 	private int turnControl = 1;
+	private int townGold;
 	private JLabel playerInfo;
 	private JLabel playerInstruct;
 	private JLabel dayCount;
@@ -293,6 +294,8 @@ public class Frame extends JFrame
 		repaint();
 	}
 	
+	
+	
 	//buttons
 	//*****************************************************************************************************************************
 	//main screen button listeners
@@ -314,7 +317,7 @@ public class Frame extends JFrame
 			validate();
 			repaint();
 			
-			day += 1;
+			townGold = currentPlayer.getGold();
 			
 			playerInstruct.setText( "What would you like to buy?" );
 	      }
@@ -463,6 +466,11 @@ public class Frame extends JFrame
 			buttonPanel.add( restButton );
 			validate();
 			repaint();
+			
+			if ( currentPlayer.getGold() < townGold )
+			{
+				day += 1;
+			}
 			
 			updateDay();
 			
