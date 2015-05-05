@@ -12,10 +12,32 @@ public class Battle
 	{
 		// playerA is attacking playerB
 		int damage;
+		int crit = randomWithRange( 1, 100 );
+		int critDmg;
+		int miss;
 		
 		if ( playerB.getProtect() == true )
 		{
-			damage = (int) ( playerA.getPower() - ( playerB.getEndurance() * 1.5 ) );
+			if ( crit < 11 )
+			{
+				//gets a crit hit
+				critDmg = ( crit * playerA.getSpeed() );
+				miss = 1;
+			}
+			else if ( crit > 90 )
+			{
+				//misses horribly
+				critDmg = 0;
+				miss = 0;
+			}
+			else
+			{
+				//gets a normal hit
+				critDmg = 0;
+				miss = 1;
+			}
+			
+			damage = ( int ) ( ( playerA.getPower() - ( playerB.getEndurance() * 1.5 ) + crit ) * miss );
 			playerB.setProtect( false );
 		}
 		else
